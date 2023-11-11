@@ -22,7 +22,16 @@ int ans = 0; // 가장 많이 폭발하는 영역의 수
 
 void getInput(); // 사용자의 입력을 받는다
 void setBoomPos(); // 폭발 좌표를 저장한다
-// cur = 폭발 좌표 인덱스
+void doBoom(int cur); // 폭발 수행 (cur = 폭발좌표 인덱스)
+
+int main() {
+    getInput();
+    setBoomPos();
+    doBoom(0);
+    cout << ans;
+    return 0;
+}
+
 void doBoom(int cur) {
     if (cur == boom_pos.size()) {
         // 폭발한 지역 갯수 세기
@@ -61,14 +70,6 @@ void doBoom(int cur) {
         }
         visit_list.clear();
     }
-}
-
-int main() {
-    getInput();
-    setBoomPos();
-    doBoom(0);
-    cout << ans;
-    return 0;
 }
 
 void setBoomPos() {
