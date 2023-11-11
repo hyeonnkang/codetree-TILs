@@ -33,7 +33,7 @@ int block2_y[][3] = {
 
 // x, y가 영역의 범위 밖에 있으면 true 반환
 bool isNotValidRange(int x, int y) {
-    return (x < 0 || x >= n || y < 0 || y >= n);
+    return (x < 0 || x >= n || y < 0 || y >= m);
 }
 
 int ans = 0;
