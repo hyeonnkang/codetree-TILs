@@ -28,7 +28,7 @@ int block2_x[][3] = {
 };
 int block2_y[][3] = {
         {0, 0, 0},
-        {0, 1,}
+        {0, 1, 2}
 };
 
 // x, y가 영역의 범위 밖에 있으면 true 반환
@@ -97,7 +97,7 @@ int main() {
 
     // 블럭을 탐색하며 최대합 구하기
     for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+        for (int j = 0; j < m; j++) {
             checkBlock1(i, j);
             checkBlock2(i, j);
         }
