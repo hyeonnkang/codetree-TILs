@@ -19,7 +19,7 @@ void move(int dir, int row, int col, int cnt, int pre_num); // (row, col)에서 
 int main() {
     getInput();
 
-    move(direction[r-1][c-1], r-1, c-1, 0, board[r-1][c-1]);
+    move(direction[r - 1][c - 1], r - 1, c - 1, 0, board[r - 1][c - 1]);
 
     cout << ans;
 
@@ -30,6 +30,8 @@ void move(int dir, int row, int col, int cnt, int pre_num) {
     int next_row = row;
     int next_col = col;
     for (int i = 0; i < 4; i++) {
+        row = next_row;
+        col = next_col;
         next_row += dx[dir];
         next_col += dy[dir];
 
