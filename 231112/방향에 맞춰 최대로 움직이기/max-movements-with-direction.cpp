@@ -30,8 +30,6 @@ void move(int dir, int row, int col, int cnt, int pre_num) {
     int next_row = row;
     int next_col = col;
     for (int i = 0; i < 4; i++) {
-        row = next_row;
-        col = next_col;
         next_row += dx[dir];
         next_col += dy[dir];
 
@@ -42,7 +40,7 @@ void move(int dir, int row, int col, int cnt, int pre_num) {
             continue;
         } else {
             move(dir, next_row, next_col, cnt, pre_num); // 방향 그대로
-            move(direction[next_row][next_col], next_row, next_col, cnt + 1, board[row][col]); // 방향 전환
+            move(direction[next_row][next_col], next_row, next_col, cnt + 1, board[next_row][next_col]); // 방향 전환
         }
     }
 }
