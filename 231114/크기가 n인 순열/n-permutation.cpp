@@ -5,7 +5,7 @@ using namespace std;
 
 int n;
 int num[MAX_N];
-int visited[MAX_N];
+int visited[MAX_N+1];
 
 void printNum(){
     for(int i = 0; i < n; i++){
