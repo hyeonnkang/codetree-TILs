@@ -52,7 +52,7 @@ void selectNum(int cur, int cnt){
         ans = min(ans, calculateDiff());
         return;
     }
-    if(cur == 2*n || n-cnt > 2*n-cur+1) return;
+    if(cur == 2*n || n-cnt > 2*n-cur+1 || cnt > n) return;
 
     // 숫자를 선택하지 X
     selectNum(cur+1, cnt);
