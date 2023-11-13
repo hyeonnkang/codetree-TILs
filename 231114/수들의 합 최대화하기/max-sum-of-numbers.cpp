@@ -18,20 +18,23 @@ void choose(int cur, int sum){
 
     for(int i = 1; i <= n; i++){
         if(row_visited[i]) continue;
+        row_visited[i] = 1;
         for(int j = 1; j <= n; j++){
             if(col_visited[j]) continue;
-
-            row_visited[i] = 1;
             col_visited[j] = 1;
             chosen_num[cur] = num[i][j];
             choose(cur+1, sum + num[i][j]);
-            row_visited[i] = 0;
             col_visited[j] = 0;
         }
+        row_visited[i] = 0;
     }
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
     cin >> n;
     for(int i = 1; i <= n; i++){
         for(int j= 1; j <= n; j++){
