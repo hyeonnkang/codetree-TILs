@@ -10,17 +10,9 @@ int col_visited[MX+1];
 int ans = 0; // n 개의 색칠된 칸의 합 중 최댓값
 int chosen_num[MX+1];
 
-int calculateSum(){
-    int sum = 0;
-    for(int i = 1; i <= n; i++){
-        sum += chosen_num[i];
-    }
-    return sum;
-}
-
-void choose(int cur){
+void choose(int cur, int sum){
     if(cur > n){
-        ans = max(ans, calculateSum());
+        ans = max(ans, sum);
         return;
     }
 
@@ -32,7 +24,7 @@ void choose(int cur){
             row_visited[i] = 1;
             col_visited[j] = 1;
             chosen_num[cur] = num[i][j];
-            choose(cur+1);
+            choose(cur+1, sum + num[i][j]);
             row_visited[i] = 0;
             col_visited[j] = 0;
         }
@@ -47,7 +39,7 @@ int main() {
         }
     }
 
-    choose(1);
+    choose(1, 0);
 
     cout << ans;
 
