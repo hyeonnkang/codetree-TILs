@@ -13,7 +13,7 @@ pair<int, int> selected_dot[MX];
 ll ans = INF; // 거리가 가장 먼 두 점 사이의 거리의 최솟값
 
 void getInput();
-ll calculateMinDist(); // 고른 점들의 거리의 최솟값을 반환
+ll calculateMaxDist(); // 고른 점들의 거리의 최솟값을 반환
 void selectDot(int cur, int cnt);
 
 int main() {
@@ -23,13 +23,13 @@ int main() {
     return 0;
 }
 
-ll calculateMinDist(){   
-    ll res = INF;
+ll calculateMaxDist(){   
+    ll res = 0;
     for(int i = 0; i < m; i++){
         for(int j = i+1; j < m; j++){
             int x = abs(selected_dot[i].X - selected_dot[j].X);
             int y = abs(selected_dot[i].Y - selected_dot[j].Y);
-            res = min(res, ll(x*x + y*y));
+            res = max(res, ll(x*x + y*y));
         }
     }
     return res;
@@ -37,7 +37,7 @@ ll calculateMinDist(){
 
 void selectDot(int cur, int cnt){
     if(cnt == m){ // m 개를 모두 고른 경우
-        ans = min(ans, calculateMinDist());
+        ans = min(ans, calculateMaxDist());
         return;
     }
     if(cur == n){ // n개의 점을 모두 탐색한 경우
