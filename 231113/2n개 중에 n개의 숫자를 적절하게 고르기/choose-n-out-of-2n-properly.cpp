@@ -5,8 +5,8 @@ using namespace std;
 #define MAX_N 10
 
 int n;
-int num[MAX_N];
-int is_selected[MAX_N];
+int num[2 * MAX_N];
+int is_selected[2 * MAX_N];
 int sum_all = 0; // num의 모든 숫자의 합
 int ans = INF; // 두 그룹의 원소합의 차
 
@@ -52,13 +52,13 @@ void selectNum(int cur, int cnt){
         ans = min(ans, calculateDiff());
         return;
     }
-    if(cur == 2*n || n-cnt > 2*n-cur+1 || cnt > n) return;
-
-    // 숫자를 선택하지 X
-    selectNum(cur+1, cnt);
+    if(cur == 2*n) return;
 
     // 숫자를 선택
     is_selected[cur] = 1;
     selectNum(cur+1, cnt+1);
     is_selected[cur] = 0;
+
+    // 숫자를 선택하지 X
+    selectNum(cur+1, cnt);
 }
