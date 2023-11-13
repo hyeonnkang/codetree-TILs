@@ -4,16 +4,19 @@
 23년 11월 13일 목표(50px)를 달성했어요🥳.
 
 ![180xp](https://img.shields.io/badge/EXP-180xp-%235cb85c.svg?for-the-badge)
-![3일째](https://img.shields.io/badge/연속학습-3일째-%23E34F26.svg?for-the-badge)
+![4일째](https://img.shields.io/badge/연속학습-4일째-%23E34F26.svg?for-the-badge)
 
 |총 문제수|획득 경험치|연속 학습|
 |---:|---:|---|
-2|180xp|3일째🔥|
+5|180xp|4일째🔥|
 
 |교재|이름|난이도|상태|최근 제출 코드|
 |---|---|:---:|:---:|---|
+|[Intermediate Low / Backtracking / K개 중 하나를 N번 선택하기(Conditional)](https://www.codetree.ai/missions?missionId=2)|[[테스트]최소 점프 횟수](https://www.codetree.ai/missions/2/problems/min-num-of-jumps)|![보통][medium]|![Passed][passed]|[링크](https://github.com/hyeonnkang/codetree-TILs/blob/main/231113/%EC%B5%9C%EC%86%8C%20%EC%A0%90%ED%94%84%20%ED%9A%9F%EC%88%98/min-num-of-jumps.cpp)|
+|[Intermediate Low / Backtracking / N개 중에 M개 고르기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[개념]n개 중에 m개 뽑기](https://www.codetree.ai/missions/2/problems/n-choose-m)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/hyeonnkang/codetree-TILs/blob/main/231113/n%EA%B0%9C%20%EC%A4%91%EC%97%90%20m%EA%B0%9C%20%EB%BD%91%EA%B8%B0/n-choose-m.cpp)|
+|[Intermediate Low / Backtracking / N개 중에 M개 고르기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[연습]xor 결과 최대 만들기](https://www.codetree.ai/missions/2/problems/max-of-xor)|![쉬움][easy]|![Passed][passed]|[링크](https://github.com/hyeonnkang/codetree-TILs/blob/main/231113/xor%20%EA%B2%B0%EA%B3%BC%20%EC%B5%9C%EB%8C%80%20%EB%A7%8C%EB%93%A4%EA%B8%B0/max-of-xor.cpp)|
 |[Intermediate Low / Backtracking / N개 중에 M개 고르기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[연습]2n개 중에 n개의 숫자를 적절하게 고르기](https://www.codetree.ai/missions/2/problems/choose-n-out-of-2n-properly)|![보통][medium]|![Passed][passed]|[링크](https://github.com/hyeonnkang/codetree-TILs/blob/main/231113/2n%EA%B0%9C%20%EC%A4%91%EC%97%90%20n%EA%B0%9C%EC%9D%98%20%EC%88%AB%EC%9E%90%EB%A5%BC%20%EC%A0%81%EC%A0%88%ED%95%98%EA%B2%8C%20%EA%B3%A0%EB%A5%B4%EA%B8%B0/choose-n-out-of-2n-properly.cpp)|
-|[Intermediate Low / Backtracking / N개 중에 M개 고르기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[테스트]n개의 점 중 m개 고르기](https://www.codetree.ai/missions/2/problems/choose-m-out-of-n-points)|![보통][medium]|![Failed][failed]|[링크](https://github.com/hyeonnkang/codetree-TILs/blob/main/231113/n%EA%B0%9C%EC%9D%98%20%EC%A0%90%20%EC%A4%91%20m%EA%B0%9C%20%EA%B3%A0%EB%A5%B4%EA%B8%B0/choose-m-out-of-n-points.cpp)|
+|[Intermediate Low / Backtracking / N개 중에 M개 고르기(Simple)](https://www.codetree.ai/missions?missionId=2)|[[테스트]n개의 점 중 m개 고르기](https://www.codetree.ai/missions/2/problems/choose-m-out-of-n-points)|![보통][medium]|![Passed][passed]|[링크](https://github.com/hyeonnkang/codetree-TILs/blob/main/231113/n%EA%B0%9C%EC%9D%98%20%EC%A0%90%20%EC%A4%91%20m%EA%B0%9C%20%EA%B3%A0%EB%A5%B4%EA%B8%B0/choose-m-out-of-n-points.cpp)|
 
 
 * 획득 경험치: 해설을 보지 않고 푼 문제에 한해 최초 1회 경험치를 획득하실 수 있습니다.
