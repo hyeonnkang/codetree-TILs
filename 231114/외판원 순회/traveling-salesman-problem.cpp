@@ -12,7 +12,8 @@ int ans = INF;
 // cur: 현재 위치  weight: 누적 비용  cnt: 누적 방문 지점 갯수
 void move(int cur, int weight, int cnt){
     if(cnt == n){
-        ans = min(ans, weight + cost[cur][1]);
+        if(cost[cur][1] != 0)
+            ans = min(ans, weight + cost[cur][1]);
         return;
     }
     for(int i = 2; i <= n; i++){
@@ -36,7 +37,6 @@ int main() {
     visited[1] = 1;
     move(1, 0, 1);
     cout << ans;
-
 
     return 0;
 }
