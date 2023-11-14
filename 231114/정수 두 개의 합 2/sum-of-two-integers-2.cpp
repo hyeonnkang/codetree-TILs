@@ -17,12 +17,14 @@ int main() {
     int j = 1;
     int ans = 0;
     for(int i = 0; i < n-1; i++){
-        j= i+1;
         while(j < n){
-            if(num[i] + num[j] > k) break;
-            ans++;
+            if(num[i] + num[j] > k){
+                ans += j - i - 1;
+                break;
+            } 
             j++;
         }
+
         if(j == n) j = n-1;
     }
     cout << ans;
