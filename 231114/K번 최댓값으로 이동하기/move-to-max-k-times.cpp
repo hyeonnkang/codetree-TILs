@@ -11,36 +11,9 @@ int dy[] = {0, 0, 1, -1};
 int r, c; // dfs의 시작 좌표 위치
 int cnt = 0; // dfs에서 새로 탐색한 좌표의 갯수
 
-bool isOutOfRange(int row, int col){
-    return (row < 1 || row > n || col < 1 || col > n);
-}
-
-void setPos(int row, int col){
-    r = row;
-    c = col;
-}
-
-void dfs(int num, int row, int col){
-    for(int i = 0; i < 4; i++){
-        int x = row + dx[i];
-        int y = col + dy[i];
-
-        if(isOutOfRange(x, y)) continue;
-
-        if(visited[x][y] || board[x][y] >= num) continue;
-
-        if(cnt == 0 || board[x][y] > board[r][c]){
-            setPos(x, y);
-        }else if(board[x][y] == board[r][c]){
-            if(x < r) setPos(x, y);
-            else if(x == r && y < c) setPos(x, y);
-        }
-
-        cnt++;
-        visited[x][y] = 1;
-        dfs(num, x, y);
-    }
-}
+bool isOutOfRange(int row, int col);
+void setPos(int row, int col);
+void dfs(int num, int row, int col);
 
 int main() {
     cin >> n >> k;
@@ -68,4 +41,35 @@ int main() {
     cout << r << " " << c;
 
     return 0;
+}
+
+void dfs(int num, int row, int col){
+    for(int i = 0; i < 4; i++){
+        int x = row + dx[i];
+        int y = col + dy[i];
+
+        if(isOutOfRange(x, y)) continue;
+
+        if(visited[x][y] || board[x][y] >= num) continue;
+
+        if(cnt == 0 || board[x][y] > board[r][c]){
+            setPos(x, y);
+        }else if(board[x][y] == board[r][c]){
+            if(x < r) setPos(x, y);
+            else if(x == r && y < c) setPos(x, y);
+        }
+
+        cnt++;
+        visited[x][y] = 1;
+        dfs(num, x, y);
+    }
+}
+
+bool isOutOfRange(int row, int col){
+    return (row < 1 || row > n || col < 1 || col > n);
+}
+
+void setPos(int row, int col){
+    r = row;
+    c = col;
 }
