@@ -16,13 +16,13 @@ int main() {
 
     int j = 1;
     int ans = 0;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n-1; i++){
         while(j < n){
             if(num[i] + num[j] > k) break;
-
             ans++;
             j++;
         }
+        if(j == n) j = n-1;
     }
     cout << ans;
 
