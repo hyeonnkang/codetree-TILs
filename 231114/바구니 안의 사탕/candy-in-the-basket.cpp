@@ -21,7 +21,7 @@ int main() {
     }
 
     for(int i = 1; i <= pos_max; i++){
-        candy_sum[i] += candy_sum[i-1] + candy_cnt[i];
+        candy_sum[i] = candy_sum[i-1] + candy_cnt[i];
     }
 
     ll ans = 0; // 구간 내의 사탕의 최대 갯수
@@ -29,7 +29,7 @@ int main() {
     for(; mid + k <= pos_max; mid++){
         ans = max(ans, candy_sum[mid+k] - candy_sum[mid-k] + candy_cnt[mid-k]);
     }
-    if(k >= pos_max) ans = candy_sum[pos_max];
+    if((ll)k >= pos_max) ans = candy_sum[pos_max];
     cout << ans;
 
     return 0;
