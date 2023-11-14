@@ -18,14 +18,18 @@ int main() {
 
     fill(fire_dist, fire_dist + n, INT_MAX);
 
-    int j = 0;
+    int j = m-1;
     for(int i = 0; i < n; i++){
-        if(j == m) j--;
-        while(j < m){
+        j = m-1;
+        while(j >= 0){
             int dist = abs(hero_pos[j] - fire_pos[i]);
-            if(fire_dist[i] < dist) break;
-            fire_dist[i] = min(fire_dist[i], dist);
-            j++;
+            if(fire_dist[i] < dist){
+                break;
+            }else{
+                fire_dist[i] = min(fire_dist[i], dist);
+                j--;
+            }
+            
         }
     }
 
