@@ -36,7 +36,7 @@ int main() {
     }
 
     int max_cnt = 0;
-    int max_k = 0;
+    int max_k = 1;
     for(int k = 1; k <= 100; k++){
         // visited 초기화
         for(int i = 0; i < n; i++) fill(visited[i], visited[i] + m, 0);
