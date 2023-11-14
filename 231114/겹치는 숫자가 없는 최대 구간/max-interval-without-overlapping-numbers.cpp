@@ -14,14 +14,15 @@ int main() {
     }
 
     int ans = 0;
-    int j = 0;
+    int j = 1;
     for(int i = 1; i <= n; i++){
-        while(j+1 <= n && !visited[num[j+1]]){
-            visited[num[j+1]]++;
+        while(j <= n){
+            if(visited[num[j]]) break;
+            visited[num[j]]++;
             j++;
         }
-        ans = max(ans, j-i+1);
-        visited[i]--;
+        ans = max(ans, j-i);
+        visited[num[i]]--;
     }
     cout << ans;
 
