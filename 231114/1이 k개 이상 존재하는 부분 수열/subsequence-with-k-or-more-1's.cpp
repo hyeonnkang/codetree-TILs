@@ -28,7 +28,7 @@ int main() {
             ans = min(ans, j-i);
         if(num[i] == 1) cnt--;
     }
-    cout << ans;
+    cout << (ans == INT_MAX ? -1 : ans);
 
     return 0;
 }
