@@ -14,18 +14,15 @@ int main() {
 
     sort(num, num+n);
 
-    int j = 1;
+    int j = n-1;
     int ans = 0;
     for(int i = 0; i < n-1; i++){
-        while(j < n){
-            if(num[i] + num[j] > k){
-                ans += j - i - 1;
-                break;
-            } 
-            j++;
+        while(j > i && num[i] + num[j] > k){
+            j--;
         }
-
-        if(j == n) j = n-1;
+        if(j > i){
+            ans += j-i;
+        }
     }
     cout << ans;
 
