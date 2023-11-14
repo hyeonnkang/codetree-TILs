@@ -25,6 +25,8 @@ void bfs(int row, int col){
         int weight = Q.front().second;
         Q.pop();
 
+        if(min_weight != -1 && weight > min_weight) continue;
+
         if(board[cur.X][cur.Y] == 3){
             if(min_weight == -1) min_weight = weight;
             else min_weight = min(min_weight, weight);
