@@ -20,12 +20,12 @@ int main() {
         pos_max = max(pos_max, candy[i].second);
     }
 
-    for(int i = 1; i <= pos_max; i++){
+    for(int i = 0; i <= pos_max; i++){
         candy_sum[i] = candy_sum[i-1] + candy_cnt[i];
     }
 
     ll ans = 0; // 구간 내의 사탕의 최대 갯수
-    int mid = k + 1;
+    int mid = k;
     for(; mid + k <= pos_max; mid++){
         ans = max(ans, candy_sum[mid+k] - candy_sum[mid-k] + candy_cnt[mid-k]);
     }
