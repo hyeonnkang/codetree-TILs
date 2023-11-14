@@ -16,7 +16,7 @@ int main() {
     ll pos_max = 0;
     for(int i = 1; i <= n; i++){
         cin >> candy[i].first >> candy[i].second;
-        candy_cnt[candy[i].second] = candy[i].first;
+        candy_cnt[candy[i].second] += candy[i].first;
         pos_max = max(pos_max, candy[i].second);
     }
 
@@ -29,6 +29,7 @@ int main() {
     for(; mid + k <= pos_max; mid++){
         ans = max(ans, candy_sum[mid+k] - candy_sum[mid-k] + candy_cnt[mid-k]);
     }
+    if(k >= pos_max) ans = candy_sum[pos_max];
     cout << ans;
 
     return 0;
