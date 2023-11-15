@@ -22,9 +22,11 @@ void move(int r, int c){
 
         if(mat[next_r][next_c] <= mat[r][c]) continue;
 
-        dp[next_r][next_c] = 
-        max(dp[next_r][next_c], dp[r][c] + 1);
-        move(next_r, next_c);
+        if(dp[r][c] + 1 > dp[next_r][next_c]){
+            dp[next_r][next_c] = dp[r][c] + 1;
+            move(next_r, next_c);
+        }
+        
     }
 }
 
