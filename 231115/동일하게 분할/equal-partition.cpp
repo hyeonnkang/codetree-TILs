@@ -2,11 +2,11 @@
 using namespace std;
 
 #define MX 100
-#define SUM_MAX 100000;
+#define SUM_MAX 100000
 
 int n;
 int num[MX+1];
-int dp[MX+1];
+int dp[SUM_MAX+1];
 int sum_all = 0; // 입력받은 숫자의 전체 합
 
 int getSumOfAllNum(){
