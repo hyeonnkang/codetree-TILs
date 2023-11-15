@@ -24,6 +24,7 @@ void move(int r, int c){
 
         dp[next_r][next_c] = 
         max(dp[next_r][next_c], dp[r][c] + 1);
+        move(next_r, next_c);
     }
 }
 
@@ -51,7 +52,6 @@ int main() {
             ans = max(ans, dp[i][j]);
         }
     }
-
     cout << ans;
 
     return 0;
