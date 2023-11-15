@@ -35,7 +35,7 @@ int main() {
         }
     }
 
-    cout << ( sum_all % 2 == 0 && (dp[(int)(sum_all/2)] > 0) ? "Yes" : "No");
+    cout << ( (sum_all % 2 == 0 && dp[(int)(sum_all/2)]) ? "Yes" : "No");
 
     return 0;
 }
