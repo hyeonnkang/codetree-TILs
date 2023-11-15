@@ -59,8 +59,11 @@ int main() {
 
             if(abs(mx_up - mn_up) < abs(mx_left - mn_left)){
                 dp[i][j] = {abs(mx_up - mn_up), mx_up, mn_up};
-            }else{
+            }else if (abs(mx_up - mn_up) > abs(mx_left - mn_left)){
                 dp[i][j] = {abs(mx_left - mn_left), mx_left, mn_left};
+            }else{
+                if(mx_up < mx_left) dp[i][j] = {abs(mx_up - mn_up), mx_up, mn_up};
+                else dp[i][j] = {abs(mx_left - mn_left), mx_left, mn_left};
             }
         }
     }
