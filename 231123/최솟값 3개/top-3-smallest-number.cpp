@@ -3,7 +3,7 @@ using namespace std;
 using ll = long long;
 
 int n;
-set<int> tree_set;
+multiset<int> tree_set;
 vector<ll> answer;
 
 ll getMulResult(){
@@ -26,7 +26,7 @@ int main() {
         cin >> x;
         tree_set.insert(x);
 
-        if((int)tree_set.size() < 3) 
+        if(i < 2) 
             answer.push_back(-1);
         else 
             answer.push_back(getMulResult());
