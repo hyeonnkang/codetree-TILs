@@ -1,14 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 int n;
 set<int> tree_set;
-vector<int> answer;
+vector<ll> answer;
 
-int getMulResult(){
+ll getMulResult(){
     auto it = tree_set.begin();
     int k = 0;
-    int res = 1;
+    ll res = 1;
     while(k < 3){
         res *= (*it);
         it++;
