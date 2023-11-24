@@ -5,6 +5,8 @@ using namespace std;
 
 int n;
 int num[MX+1];
+int sum[MX+1];
+int min_num[MX+1];
 
 int main() {
     cin >> n;
@@ -13,24 +15,19 @@ int main() {
         cin >> num[i];
     }
 
-    priority_queue<int, vector<int>, greater<int>> pq;   
-    double ans = 0; 
-    for(int i = n; i >= 1; i--){
-        for(int j = n; j >= i; j--){
-            pq.push(num[j]);
-        }
+    sum[n] = num[n];
+    for(int i = n-1; i >= 1; i--){
+        sum[i] = sum[i+1] + num[i];
+    }
 
-        // 제일 작은 수 삭제
-        pq.pop();
-        if(pq.empty()) continue;
-
-        // 평균 구해서 최대 평균값 업데이트
-        int sum = 0;
-        while(!pq.empty()){
-            sum += pq.top(); pq.pop();
-        }
-        double avg = (sum / double(n - i));
-        ans = max(ans, avg);
+    min_num[n] = num[n];
+    for(int i = n-1; i >= 1; i--){
+        min_num[i] = (num[i] < min_num[i+1]) ? num[i]: min_num[i+1];
+    }
+    
+    double ans = 0;
+    for(int i = n-1; i >= 1; i--){
+        ans = max(ans, (sum[i] - min_num[i]) / double(n-i));
     }
 
     cout << fixed;
