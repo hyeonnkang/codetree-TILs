@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+using ll = long long;
+
 #define MX 100000
 
 int n;
@@ -23,7 +25,7 @@ int main() {
         if(s[i] == 'W') R[i]++;
     }
 
-    int ans = 0;
+    ll ans = 0;
     for(int i = 0; i < n; i++){
         if(s[i] == 'O') ans += L[i] * R[i];
     }
