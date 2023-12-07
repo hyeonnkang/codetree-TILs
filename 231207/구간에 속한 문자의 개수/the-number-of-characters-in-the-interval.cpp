@@ -19,7 +19,7 @@ int main() {
     }
 
     for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= n; j++){
+        for(int j = 1; j <= m; j++){
             sum[i][j] = {
                 get<0>(sum[i-1][j]) + get<0>(sum[i][j-1]) - get<0>(sum[i-1][j-1]),
                 get<1>(sum[i-1][j]) + get<1>(sum[i][j-1]) - get<1>(sum[i-1][j-1]),
