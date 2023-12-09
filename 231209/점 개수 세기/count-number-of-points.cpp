@@ -24,6 +24,12 @@ int main() {
 
         set<int>::iterator it1 = num.lower_bound(a);
         set<int>::iterator it2 = num.upper_bound(b);
+
+        if(it1 == num.end()){
+            cout << 0 << "\n";
+            continue;
+        }
+
         bool flag = false;
         if(it2 == num.end()){
             it2--;
