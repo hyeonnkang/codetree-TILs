@@ -35,7 +35,6 @@ int main() {
             it2--;
             flag = true;
         }
-        // cout << "*it1=" << *it1 << " *it2=" << *it2 << " pos[*it2]=" << pos[*it2] << " pos[*it1]=" << pos[*it1] << "\n";
         int k = pos[*it2] - pos[*it1];
         if(flag) k++;
         cout << k << "\n";
