@@ -23,7 +23,6 @@ int main() {
     sort(points.begin(), points.end());
 
     int max_cnt = 0; // 가장 많이 겹치는 선의 갯수
-    int max_range = 0; // max_cnt 만큼 선이 겹치는 구간의 갯수
     int cur_cnt = 0; // 현재 선의 갯수
     unordered_set<int> cur;
     for(int i = 0; i < (int)points.size(); i++){
@@ -32,19 +31,14 @@ int main() {
 
         if(val == 1){
             cur_cnt += 1;
-            if(max_cnt < cur_cnt){
-                max_cnt = cur_cnt;
-                max_range = 1;
-            }else if(max_cnt == cur_cnt){
-                max_range += 1;
-            }
+            max_cnt = max(max_cnt, cur_cnt);
             cur.insert(idx);
         }else{
             cur_cnt -= 1;
             cur.erase(idx);
         }
     }
-    cout << max_range;
+    cout << max_cnt;
 
     return 0;
 }
