@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 #define MX_N 100000
 
@@ -18,7 +19,7 @@ int main() {
         }
     }
 
-    int sum = 0;
+    ll sum = 0;
     for(int i = 0; i < n-1; i++){
         if(s[i] == '(' && s[i] == s[i+1]){
             sum += R[i];
