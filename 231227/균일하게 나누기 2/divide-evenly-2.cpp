@@ -15,8 +15,8 @@ int main() {
     }
 
     // 모두 더해서 x, y 평균값 구하기
-    int avg_x = 0;
-    int avg_y = 0;
+    double avg_x = 0;
+    double avg_y = 0;
     for(int i = 0; i < n; i++){
         avg_x += pos[i].first;
         avg_y += pos[i].second;
