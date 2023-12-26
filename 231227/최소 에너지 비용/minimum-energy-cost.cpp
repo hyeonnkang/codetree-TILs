@@ -28,7 +28,7 @@ int main() {
     // 필요한 충전 총량 구하기
     ll sum = 0;
     for(int i = 0; i < n-1; i++){
-        sum += move_cost[i] * min_charge_cost[i];
+        sum += (ll)move_cost[i] * (ll)min_charge_cost[i];
     }  
     cout << sum;
 
