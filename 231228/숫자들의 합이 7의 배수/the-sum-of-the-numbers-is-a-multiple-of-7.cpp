@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 #define MX_N 50000
 
 int n;
 int num[MX_N];
-int sum[MX_N];
+ll sum[MX_N];
 vector<int> cnt[7];
 
 int main() {
@@ -30,8 +31,6 @@ int main() {
 
     int ans = 0;
     for(int i = 0; i < 7; i++){
-        if(cnt[i].size() == 0) continue;
-        
         if(cnt[i].size() > 1){
             auto it = cnt[i].begin();
             int a = *it;
@@ -39,9 +38,8 @@ int main() {
             it--;
             int b = *it;
             ans = max(ans, b-a);
-        }else{
-            auto it = cnt[i].begin();
-            if(*it % 7 == 0){
+        }else if(cnt[i].size() == 1){
+            if(i % 7 == 0){
                 ans = max(ans, 1);
             }
         }
