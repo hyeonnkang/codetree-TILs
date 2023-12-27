@@ -6,6 +6,7 @@ using namespace std;
 int n;
 int num[MX_N];
 int sum[MX_N];
+vector<int> cnt[7];
 
 int main() {
     cin >> n;
@@ -18,13 +19,30 @@ int main() {
         sum[i] = sum[i-1] + num[i];
     }
 
+    for(int i = 0; i < n; i++){
+        int idx = sum[i] % 7;
+        cnt[idx].push_back(i);
+    }
+
+    for(int i = 0; i < 7; i++){
+        sort(cnt[i].begin(), cnt[i].end());
+    }
+
     int ans = 0;
-    if(sum[0] % 7 == 0) ans = 1;
-    for(int i = 0; i < n-1; i++){
-        for(int j = 1; j < n; j++){
-            int k = sum[j] - sum[i];
-            if(k % 7 == 0){
-                ans = max(ans, j-i);
+    for(int i = 0; i < 7; i++){
+        if(cnt[i].size() == 0) continue;
+        
+        if(cnt[i].size() > 1){
+            auto it = cnt[i].begin();
+            int a = *it;
+            it = cnt[i].end();
+            it--;
+            int b = *it;
+            ans = max(ans, b-a);
+        }else{
+            auto it = cnt[i].begin();
+            if(*it % 7 == 0){
+                ans = max(ans, 1);
             }
         }
     }
