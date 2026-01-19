@@ -17,13 +17,9 @@ public class Main {
         int maxCnt = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
-                // 자기 자신만 채굴
-                maxCnt = Math.max(maxCnt, grid[i][j] - 1);
-
-                // 마름모꼴로 채굴
                 int cnt = 0;
                 long cost = 0;
-                for(int k = 1; k <= 2*(n-1); k++){
+                for(int k = 0; k <= 2*(n-1); k++){
                     cost = (long)k*k + (long)(k+1)*(k+1);
                     cnt = find(i, j, k);
                     if (cnt * m >= cost) {
