@@ -24,7 +24,7 @@ public class Main {
                 // 마름모꼴로 채굴
                 int cnt = 0;
                 long cost = 0;
-                for(int k = 1; k <= n+1; k++){
+                for(int k = 1; k <= 2*(n-1); k++){
                     cost = k*k + (k+1)*(k+1);
                     cnt = find(i, j, k);
                     if(m*cnt-cost < 0) continue;
