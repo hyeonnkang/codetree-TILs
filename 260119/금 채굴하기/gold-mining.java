@@ -22,13 +22,12 @@ public class Main {
                 maxCnt = Math.max(maxCnt, grid[i][j] - 1);
 
                 // 마름모꼴로 채굴
-                int k = 1;
                 int cnt = 0;
                 long cost = 0;
-                while(true){
+                for(int k = 1; k <= n+1; k++){
                     cost = k*k + (k+1)*(k+1);
-                    cnt = find(i, j, k++);
-                    if(m*cnt-cost < 0) break;
+                    cnt = find(i, j, k);
+                    if(m*cnt-cost < 0) continue;
                     maxCnt = Math.max(maxCnt, cnt);
                 }
             }
