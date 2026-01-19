@@ -4,7 +4,6 @@ public class Main {
 
     static int n, m;
     static int[][] grid;
-    static boolean[][] visited;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -25,10 +24,11 @@ public class Main {
                 int cnt = 0;
                 long cost = 0;
                 for(int k = 1; k <= 2*(n-1); k++){
-                    cost = k*k + (k+1)*(k+1);
+                    cost = (long)k*k + (long)(k+1)*(k+1);
                     cnt = find(i, j, k);
-                    if(m*cnt-cost < 0) continue;
-                    maxCnt = Math.max(maxCnt, cnt);
+                    if (cnt * m >= cost) {
+                        maxCnt = Math.max(maxCnt, cnt);
+                    }
                 }
             }
         }
@@ -38,53 +38,15 @@ public class Main {
     static int find(int row, int col, int k){
         int res = 0;
 
-        visited = new boolean[n][n];
-        // 위
-        for(int i = row+1; i <= row+k; i++){
-            int x = k - (i - row);
-            for(int j = col-x; j <= col+x; j++){
-                if(i < 0 || i >= n || j < 0 || j >= n) continue;
-                if(visited[i][j]) continue;
-                visited[i][j] = true;
-                res += grid[i][j];
+        for (int i = row - k; i <= row + k; i++) {
+            for (int j = col - k; j <= col + k; j++) {
+                if (i >= 0 && i < n && j >= 0 && j < n) {
+                    if (Math.abs(row - i) + Math.abs(col - j) <= k) {
+                        res += grid[i][j];
+                    }
+                }
             }
         }
-
-        // 아래
-        for(int i = row-1; i >= row-k; i--){
-            int x = k - (row - i);
-            for(int j = col-x; j <= col+x; j++){
-                if(i < 0 || i >= n || j < 0 || j >= n) continue;
-                if(visited[i][j]) continue;
-                visited[i][j] = true;
-                res += grid[i][j];
-            }
-        }
-
-        // 오른쪽
-        for(int j = col+1; j <= col+k; j++){
-            int x = k - (j - col);
-            for(int i = row-x; i <= row+x; i++){
-                if(i < 0 || i >= n || j < 0 || j >= n) continue;
-                if(visited[i][j]) continue;
-                visited[i][j] = true;
-                res += grid[i][j];
-            }
-        }
-
-        // 왼쪽
-        for(int j = col-1; j >= col-k; j--){
-            int x = k - (col - j);
-            for(int i = row-x; i <= row+x; i++){
-                if(i < 0 || i >= n || j < 0 || j >= n) continue;
-                if(visited[i][j]) continue;
-                visited[i][j] = true;
-                res += grid[i][j];
-            }
-        }
-
-        // 본인 추가
-        if(!visited[row][col]) res += grid[row][col];
 
         return res;
     }
