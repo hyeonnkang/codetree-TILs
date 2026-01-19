@@ -15,17 +15,17 @@ public class Main {
             for (int j = 0; j < n; j++)
                 grid[i][j] = sc.nextInt();
         
-        long maxCnt = 0;
+        int maxCnt = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
                 int k = 1;
-                long pre = 0, cnt = 0, cost = 0;
+                int cnt = 0;
+                long cost = 0;
                 while(true){
                     cost = k*k + (k+1)*(k+1);
                     cnt = find(i, j, k++);
-                    if(m*cnt-cost < pre) break;
+                    if(m*cnt-cost < 0) break;
                     maxCnt = Math.max(maxCnt, cnt);
-                    pre = m*cnt-cost;
                 }
             }
         }
