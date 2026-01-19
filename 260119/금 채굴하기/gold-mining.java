@@ -24,6 +24,7 @@ public class Main {
                     cnt = find(i, j, k++);
                     if(m*cnt-cost < pre) break;
                     maxCnt = Math.max(maxCnt, cnt);
+                    pre = m*cnt-cost;
                 }
             }
         }
@@ -79,7 +80,7 @@ public class Main {
         }
 
         // 본인 추가
-        res += grid[row][col];
+        if(!visited[row][col]) res += grid[row][col];
 
         return res;
     }
