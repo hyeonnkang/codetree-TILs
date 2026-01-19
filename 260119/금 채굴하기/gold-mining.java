@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
+
     static int n, m;
     static int[][] grid;
     static boolean[][] visited;
@@ -14,11 +15,11 @@ public class Main {
             for (int j = 0; j < n; j++)
                 grid[i][j] = sc.nextInt();
         
-        int maxCnt = 0;
+        long maxCnt = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
                 int k = 1;
-                int pre = 0, cnt = 0, cost = 0;
+                long pre = 0, cnt = 0, cost = 0;
                 while(true){
                     cost = k*k + (k+1)*(k+1);
                     cnt = find(i, j, k++);
