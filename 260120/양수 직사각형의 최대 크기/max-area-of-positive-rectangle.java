@@ -14,8 +14,8 @@ public class Main {
         for(int i = 0; i < n; i++){
             for(int j = 0; j < m; j++){
                 
-                for(int h = 1; i+h < n; h++){
-                    for(int w = 1; j+w < m; w++){
+                for(int h = 0; i+h < n; h++){
+                    for(int w = 0; j+w < m; w++){
                         
                         boolean isok = true;
                         for(int row = i; row <= i+h && isok; row++){
