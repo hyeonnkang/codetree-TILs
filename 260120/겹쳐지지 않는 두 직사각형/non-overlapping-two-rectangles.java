@@ -18,14 +18,14 @@ public class Main {
         }
 
         for(int i = 1; i <= n; i++){
-            for(int j = 1; j <= n; j++){
+            for(int j = 1; j <= m; j++){
                 
                 for(int h = 1; h <= n; h++){
                     if(i-h < 0) continue;
-                    for(int w = 1; w <= n; w++){
+                    for(int w = 1; w <= m; w++){
                         if(j-w < 0) continue;
 
-                        visited = new boolean[n+1][n+1];
+                        visited = new boolean[n+1][m+1];
                         // 첫번째 직사각형의 h, w 결정됨
                         int sum1 = 0;
                         for(int row = i-h+1; row <= i; row++){
@@ -38,12 +38,12 @@ public class Main {
                         // 두번째 직사각형 위치 결정
                         int sum2 = Integer.MIN_VALUE;
                         for(int r = 1; r <= n; r++){
-                            for(int c = 1; c <= n; c++){
+                            for(int c = 1; c <= m; c++){
                                 if(visited[r][c]) continue;
 
                                 for(int h2 = 1; h2 <= n; h2++){
                                     if(r-h2 < 0) continue;
-                                    for(int w2 = 1; w2 <= n; w2++){
+                                    for(int w2 = 1; w2 <= m; w2++){
                                         if(c-w2 < 0) continue;
 
                                         boolean isok = true;
