@@ -50,6 +50,7 @@ public class Main {
         }else{
             // 시계 회전
             int temp1 = grid[r+m1*dr[0]+m2*dr[1]+m3*dr[2]+dr[3]][c+m1*dc[0]+m2*dc[1]+m3*dc[2]+dr[3]];
+            int temp2 = grid[r][c];
             for(int i = 0; i < m1; i++){
                 grid[r+i*dr[0]][c+i*dc[0]] = grid[r+(i+1)*dr[0]][c+(i+1)*dc[0]];
             }
@@ -69,6 +70,10 @@ public class Main {
             for(int i = 1; i < m4; i++){
                 grid[r+m1*dr[0]+m2*dr[1]+m3*dr[2]+i*dr[3]][c+m1*dc[0]+m2*dc[1]+m3*dc[2]+i*dc[3]]
                 = grid[r+m1*dr[0]+m2*dr[1]+m3*dr[2]+(i+1)*dr[3]][c+m1*dc[0]+m2*dc[1]+m3*dc[2]+(i+1)*dc[3]];
+            }
+            if(m4 > 1){
+                grid[r+m1*dr[0]+m2*dr[1]+m3*dr[2]+(m4-1)*dr[3]][c+m1*dc[0]+m2*dc[1]+m3*dc[2]+(m4-1)*dc[3]]
+                = temp2;
             }
         }
         
