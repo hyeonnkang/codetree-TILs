@@ -1,60 +1,81 @@
 import java.util.*;
 
 public class Main {
+    static int n, m;
+    static int[] bombs;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int[] bombs = new int[n];
+        n = sc.nextInt();
+        m = sc.nextInt();
+        bombs = new int[n];
         for (int i = 0; i < n; i++) {
             bombs[i] = sc.nextInt();
         }
-
-        int[] temp = new int[n];
         // Please write your code here.
+        boolean boom = false; // 폭발 여부
+        int[] temp = new int[n];
         while(true){
-            boolean flag = false; // 폭탄이 터질 지 여부
-            int left = 0;
-            int right = 1;
-            while(left <= right && right < n){
+            boom = false;
 
-                if(bombs[left] == bombs[right]){ // 같을때
-                    right++;
-                }else{ // 다를때
-                    int cnt = right - left;
-                    if(cnt >= m){
-                        for(int i = left; i < right; i++) bombs[i] = 0;
-                        flag = true;
-                        left = right;
-                        right++;
-                    }else{
-                        left++;
-                        right++;
-                    }
+            for(int i = 0; i < n; i++){
+                if(bombs[i] == 0) continue;
+                // 숫자가 m개 이상 연속되는 경우?
+                int j = getEndIndex(i);
+
+                if(j-i >= m){
+                    // 0으로 바꾼다.
+                    changeZero(i, j);
+                    boom = true;
                 }
             }
-            
 
+            // temp에 0을 제외한 숫자들을 저장
             Arrays.fill(temp, 0);
             int ti = 0;
             for(int i = 0; i < n; i++){
                 if(bombs[i] == 0) continue;
                 temp[ti++] = bombs[i];
             }
-            for(int i = 0; i < n; i++){
-                bombs[i] = temp[i];
-            }
 
-            // 폭탄 터질게 없으면 탈출하기
-            if(!flag) break;
+            // bombs에 temp 내용을 저장
+            copyToBombs(temp);
+
+            if(!boom) break; // 더 이상 폭발 안할 때 탈출
         }
 
+        // 남은 폭탄의 개수 출력
         int cnt = 0;
-        for(int i = 0; i < n; i++) if(bombs[i] > 0) cnt++;
+        for(int i = 0; i < n; i++){
+            if(bombs[i] == 0) continue;
+            cnt++;
+        }
         System.out.println(cnt);
+
+        // 남은 폭탄의 숫자 출력
         for(int i = 0; i < cnt; i++){
-            if(bombs[i] == 0) break;
             System.out.println(bombs[i]);
         }
     }
+
+    static void copyToBombs(int[] temp){
+        for(int i = 0; i < n; i++){
+            bombs[i] = temp[i];
+        }
+    }
+
+    static void changeZero(int start, int end){
+        for(int i = start; i < end; i++){
+            bombs[i] = 0;
+        }
+    }
+     
+
+    static int getEndIndex(int index){
+        int end = index + 1;
+        for(; end < n; end++){
+            if(bombs[end] != bombs[index]) return end;
+        }
+        return end;
+    }
+
 }
